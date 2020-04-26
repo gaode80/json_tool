@@ -40,3 +40,17 @@ set(executeable_output_path ${PROJECT_SOURCE_DIR}/build/bin)
 add_executable(${PROJECT_NAME} ${src_list})
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui Qt5::WebEngineWidgets)
 set_Target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/check.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/check.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/json_tool.ico  ${PROJECT_SOURCE_DIR}/build/Resources/json_tool.ico
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/json_tool.png  ${PROJECT_SOURCE_DIR}/build/Resources/json_tool.png
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/json_tool_bak.ico  ${PROJECT_SOURCE_DIR}/build/Resources/json_tool_bak.ico
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/json_tool_bak.png  ${PROJECT_SOURCE_DIR}/build/Resources/json_tool_bak.png
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/palette_color1.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/palette_color1.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/palette_color2_1.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/palette_color2_1.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/palette_color2_2.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/palette_color2_2.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/palette_color3_1.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/palette_color3_1.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/palette_color3_2.bmp  ${PROJECT_SOURCE_DIR}/build/Resources/palette_color3_2.bmp
+ COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/Resources/timg.jpg  ${PROJECT_SOURCE_DIR}/build/Resources/timg.jpg
+ )
